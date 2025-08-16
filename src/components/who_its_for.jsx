@@ -52,15 +52,15 @@ const PremiumFlipDropdown = () => {
         setActiveDropdown(activeDropdown === dropdownId ? null : dropdownId);
     };
 
-    const handleCTA = (category) => {
-        console.log(`CTA clicked for: ${category}`);
-        alert(`Navigating to ${category} booking page...`);
-    };
+    // const handleCTA = (category) => {
+    //     console.log(`CTA clicked for: ${category}`);
+    //     alert(`Navigating to ${category} booking page...`);
+    // };
 
     const ChevronIcon = ({ isActive }) => (
         <svg
             className={`w-6 h-6 transition-all duration-400 ease-out ${
-                isActive ? 'transform rotate-180 text-blue-500' : 'text-slate-500'
+                isActive ? 'transform rotate-180 text-blue-500' : 'text-slate-300'
             }`}
             fill="none"
             stroke="currentColor"
@@ -127,7 +127,14 @@ const PremiumFlipDropdown = () => {
                             }}
                         />
 
-                        <h2 className="text-xl sm:text-2xl font-semibold text-slate-300 m-0">{item.title}</h2>
+                        {/* <h2 className="text-xl sm:text-2xl font-semibold text-slate-300 m-0">{item.title}</h2> */}
+                        <h2
+                            className={`text-xl sm:text-2xl font-semibold m-0 transition-colors duration-300 ${
+                                isActive ? 'text-[#18356C]' : 'text-slate-300'
+                            }`}
+                        >
+                            {item.title}
+                        </h2>
 
                         <ChevronIcon isActive={isActive} />
                     </div>
@@ -145,7 +152,7 @@ const PremiumFlipDropdown = () => {
                         <div className="dropdown-content-inner p-6 sm:p-8 bg-white">
                             <p className="text-lg leading-relaxed text-slate-600 mb-6">{item.description}</p>
 
-                            <AppointmentBookingDemo/>
+                            <AppointmentBookingDemo />
                         </div>
                     </div>
                 </div>
@@ -155,7 +162,8 @@ const PremiumFlipDropdown = () => {
 
     return (
         <div
-            className=" flex items-center justify-center p-5 mt-4"
+            // className=" flex items-center justify-center p-5 mt-4 relative after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-full after:h-[1px] after:bg-[#2FA19A] before:content-[''] before:absolute before:bottom-1 before:left-0 before:w-full before:h-[1px] before:bg-[#18276c]"
+            className="flex items-center justify-center p-5 mt-4 relative"
             style={{
                 // background: 'linear-gradient(135deg, #34b9a5 0%, #aef0e6 50%, #ffffff 100%)',
                 background: 'linear-gradient(to bottom, white 0%, #34b9a5 60%, #aef0e6 80%)',
@@ -172,14 +180,13 @@ const PremiumFlipDropdown = () => {
                     {/* <div className="mt-4 w-20 h-1 mb-0 bg-gradient-to-r from-[#18276c] to-[#2FA19A]   rounded-full mx-auto shadow-md"></div> */}
                     <style>
                         {`
-  @keyframes premium-underline {
-    0% { transform: translateX(-100%); }
-    50% { transform: translateX(0%); }
-    100% { transform: translateX(100%); }
-  }
-`}
+                            @keyframes premium-underline {
+                                50% { transform: translateX(0%); }
+                                0% { transform: translateX(-100%); }
+                                }
+                                100% { transform: translateX(100%); }
+                            `}
                     </style>
-
                     <div className="relative mt-4 h-1 w-20 mx-auto mb-0 overflow-hidden rounded-full shadow-lg">
                         <div
                             className="absolute inset-0 bg-gradient-to-r from-[#18276c] via-[#2FA19A] to-[#18276c]"

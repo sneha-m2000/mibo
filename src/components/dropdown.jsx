@@ -144,7 +144,7 @@ const MentalHealthApp = () => {
 
     if (currentPage === 'detail' && selectedCondition) {
         return (
-            <div className="min-h-screen bg-gradient-to-br from-slate-50 to-slate-100">
+            <div className="min-h-screen bg-gradient-to-b from-[#aef0e6] via-white to-[#aef0e6] ">
                 <div className="max-w-4xl mx-auto p-6">
                     {/* Header */}
                     <div className="mb-8">
@@ -217,14 +217,14 @@ const MentalHealthApp = () => {
     }
 
     return (
-        <div className="min-h-screen bg-gradient-to-br from-slate-50 to-slate-100">
+        <div className="min-h-screen bg-gradient-to-t from-[#aef0e6] via-white to-[#aef0e6] ">
             <div className="max-w-4xl mx-auto p-6">
                 {/* Header */}
                 <div className="text-center mb-8">
-                    <h1 className="text-2xl sm:text-4xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-[#2FA19A] to-[#18356C] drop-shadow-lg mb-2 tracking-tight">
+                    <h1 className="text-2xl sm:text-3xl font-bold " style={{ textShadow: '0 2px 4px rgba(0,0,0,0.3)' }}>
                         Mental Health Services
                     </h1>
-                    <p className="text-base sm:text-lg text-slate-600 max-w-2xl mx-auto leading-relaxed">
+                    <p className="text-xs sm:text-xs text-slate-600  mx-auto leading-relaxed">
                         Comprehensive care for your mental wellbeing
                     </p>
                     <style>
@@ -254,25 +254,24 @@ const MentalHealthApp = () => {
                             <div
                                 key={service.id}
                                 className={`relative rounded-3xl
-        bg-gradient-to-r from-[#2FA19A] to-[#1E3A8A] p-[1px] 
-        shadow-xl overflow-hidden transition-all duration-500 
-        ${expandedService === service.id ? 'shadow-[0_0_30px_rgba(47,161,154,0.6)]' : ''}`}
+       bg-gradient-to-r from-[#18276c] via-[#2FA19A] to-[#18276c] 
+     `}
                             >
-                                <div className="bg-white/20 backdrop-blur-lg rounded-2xl">
+                                <div className=" rounded-2xl">
                                     <button
                                         onClick={() => toggleService(service.id)}
                                         className="w-full flex items-center justify-between p-4 text-left 
-  bg-transparent hover:bg-white/10 rounded-2xl transition-all duration-300"
+   hover:bg-white/10 rounded-2xl transition-all duration-300"
                                     >
                                         {/* Title & description container */}
                                         <div>
-                                            <h3 className="text-xl font-extrabold text-slate-800">{service.title}</h3>
+                                            <h3 className="text-sm ml-2 font-extrabold text-slate-400">{service.title}</h3>
                                             {/* <p className="text-slate-100 text-xs">{service.description}</p> */}
                                         </div>
 
                                         {/* Chevron on far right */}
                                         <ChevronDown
-                                            className={`w-6 h-6 text-slate-800 transform transition-transform duration-500 ease-in-out 
+                                            className={`w-6 h-6 text-slate-400 transform transition-transform duration-500 ease-in-out 
     ${expandedService === service.id ? 'rotate-180 scale-110' : 'rotate-0'}`}
                                         />
                                     </button>
@@ -282,7 +281,7 @@ const MentalHealthApp = () => {
                                         className={`transition-all duration-500 ease-in-out overflow-hidden 
             ${expandedService === service.id ? 'max-h-96 opacity-100 p-6' : 'max-h-0 opacity-0 p-0'}`}
                                     >
-                                        <p className="text-white mb-4 leading-relaxed">{service.details}</p>
+                                        <p className="text-white mb-4 text-sm leading-relaxed">{service.details}</p>
                                         <button
                                             className="bg-gradient-to-r from-[#2FA19A] to-[#18356C] text-white 
               px-6 py-2 rounded-xl font-semibold shadow-md hover:shadow-lg 
@@ -320,29 +319,44 @@ const MentalHealthApp = () => {
                 </div> */}
                 <div className="relative overflow-hidden">
                     {/* Background Glow */}
-                    <div className="absolute inset-0 bg-gradient-to-br from-indigo-500 via-teal-500 to-purple-600 opacity-10 blur-3xl"></div>
+                    <div className="absolute inset-0 bg-white opacity-10 blur-3xl"></div>
 
-                    <h2
-                        className="text-3xl font-extrabold text-slate-900 mb-4 tracking-tight 
-        bg-gradient-to-r from-[#2FA19A] via-[#1E3A8A] to-[#2FA19A] 
-        bg-clip-text text-transparent"
-                    >
-                        What are you struggling with?
-                    </h2>
-
-                    <p
-                        className="text-slate-600 mb-8 text-xs animate-fadeInUp delay-200 
-        max-w-2xl mx-auto leading-relaxed typewriter"
-                    >
-                        Mibo is here to support you with all your mental health needs.
-                    </p>
+                    <div className="section-title text-center mb-10 text-black font-quicksand ">
+                        <h1
+                            className="text-lg sm:text-xs font-bold mb-3"
+                            style={{ textShadow: '0 2px 4px rgba(0,0,0,0.3)' }}
+                        >
+                            what are you struggling with ?
+                        </h1>
+                        {/* <p className="text-xs sm:text-xs opacity-90 font-light">
+                            Individual drop downs for each category, when clicked animated dropdown shows detailed info
+                        </p> */}
+                        {/* <div className="mt-4 w-20 h-1 mb-0 bg-gradient-to-r from-[#18276c] to-[#2FA19A]   rounded-full mx-auto shadow-md"></div> */}
+                        <style>
+                            {`
+                            @keyframes premium-underline {
+                                50% { transform: translateX(0%); }
+                                0% { transform: translateX(-100%); }
+                                }
+                                100% { transform: translateX(100%); }
+                            `}
+                        </style>
+                        <div className="relative mt-6 h-1 w-20 mx-auto mb-0 overflow-hidden rounded-full shadow-lg">
+                            <div
+                                className="absolute inset-0 bg-gradient-to-r from-[#18276c] via-[#2FA19A] to-[#18276c]"
+                                style={{
+                                    animation: 'premium-underline 3s ease-in-out infinite',
+                                }}
+                            ></div>
+                        </div>
+                    </div>
 
                     <div className="grid gap-6">
                         {conditions.map((condition, index) => (
                             <button
                                 key={condition.id}
                                 onClick={() => goToConditionDetail(condition)}
-                                className={`${condition.color} relative text-white p-4 rounded-2xl flex items-center justify-between group shadow-lg overflow-hidden transition-all duration-500 ease-out hover:shadow-2xl hover:scale-105 perspective-container`}
+                                className={`bg-[#18276c] relative text-white p-4 rounded-2xl flex items-center justify-between group shadow-lg overflow-hidden transition-all duration-500 ease-out hover:shadow-2xl hover:scale-105 perspective-container`}
                                 style={{ animation: `fadeInUp 0.5s ease ${index * 0.1}s both` }}
                             >
                                 {/* shimmer effect */}
@@ -402,13 +416,13 @@ const MentalHealthApp = () => {
                 </div>
 
                 {/* Footer CTA */}
-                <div className="mt-16 bg-white rounded-2xl p-8 shadow-xl border border-slate-200 text-center">
+                {/* <div className="mt-16 bg-white rounded-2xl p-8 shadow-xl border border-slate-200 text-center">
                     <h3 className="text-2xl font-bold text-slate-800 mb-4">Ready to Take the Next Step?</h3>
                     <p className="text-slate-600 mb-6">Connect with our mental health professionals today</p>
                     <button className="bg-gradient-to-r from-blue-600 to-blue-700 text-white px-10 py-4 rounded-xl text-lg font-semibold hover:shadow-lg transform hover:scale-105 transition-all duration-200">
                         Get Started Today
                     </button>
-                </div>
+                </div> */}
             </div>
         </div>
     );
